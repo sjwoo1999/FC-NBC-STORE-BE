@@ -1,6 +1,6 @@
 # .gitignore
 .env
-
+.node_modules
 # Created by https://www.toptal.com/developers/gitignore/api/windows,node,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,node,visualstudiocode
 
