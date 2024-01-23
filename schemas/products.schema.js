@@ -2,37 +2,21 @@
 
 import mongoose from "mongoose";
 
-const ProductSchema = new mongoose.Schema({
-  // data
-  //   - id
-  //   - status
-  //   - createdAt
-
-  id: {
-    type: String,
-    required: false, // id 필드는 필수 요소가 아닙니다.
+const ProductSchema = new mongoose.Schema(
+  {
+    title: { type: String, required: true },
+    content: { type: String, required: true },
+    author: { type: String, required: true },
+    password: { type: String, required: true },
+    status: {
+      type: String,
+      enum: ["FOR_SALE", "SOLD_OUT"],
+      default: "FOR_SALE",
+    },
   },
-  title: {
-    type: String,
-    required: true, // title 필드는 필수 요소입니다.
-  },
-  content: {
-    type: String,
-    required: true, // content 필드는 필수 요소입니다.
-  },
-  author: {
-    type: String,
-    required: true, // author 필드는 필수 요소입니다.
-  },
-  status: {
-    type: String,
-    required: false, // status 필드는 필수 요소가 아닙니다.
-  },
-  password: {
-    type: String,
-    required: true, // password 필드는 필수 요소입니다.
-  },
-});
+  { timestamps: true },
+);
+// enum : 열거형
 
 // 프론트엔드 서빙을 위한 코드입니다. 모르셔도 괜찮아요!
 ProductSchema.virtual("productId").get(function () {
