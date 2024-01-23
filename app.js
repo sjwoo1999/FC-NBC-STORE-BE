@@ -3,11 +3,11 @@ import express from "express";
 import { connect } from "./schemas/index.js";
 import router from "./routes/products.router.js";
 
-const app = express();
-app.use(express.json());
-
 // .env 파일 사용
 dotenv.config();
+
+const app = express();
+app.use(express.json());
 
 // MongoDB 연결 URI 설정
 const uri = process.env.MONGODB_URI;
