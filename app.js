@@ -6,7 +6,12 @@ import router from "./routes/products.router.js";
 const app = express();
 app.use(express.json());
 
-connect();
+// .env 파일 사용
+require("dotenv").config();
+
+// MongoDB 연결 URI 설정
+const uri = process.env.MONGODB_URI;
+connect(uri);
 
 // 라우터 설정
 app.use("/api", router);
