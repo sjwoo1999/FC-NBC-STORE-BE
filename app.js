@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 
 // .env 파일 사용
-require("dotenv").config();
+dotenv.config();
 
 // MongoDB 연결 URI 설정
 const uri = process.env.MONGODB_URI;
